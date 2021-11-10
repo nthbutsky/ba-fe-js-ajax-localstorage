@@ -12,7 +12,7 @@ const favoriteBtn = document.querySelector('#favorite-btn');
 const clearBtn = document.querySelector('#clear-btn');
 
 searchBtn.addEventListener('click', async () => {
-  const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}`;
+  const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -118,7 +118,7 @@ pagination.addEventListener('click', async function (e) {
   e.preventDefault();
   const clickedPage = +e.target.innerText;
   console.log(clickedPage);
-  const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}&page=${clickedPage}`;
+  const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}&page=${clickedPage}`;
   const response = await fetch(url);
   const data = await response.json();
   output.innerHTML = ' ';
@@ -128,7 +128,7 @@ pagination.addEventListener('click', async function (e) {
 output.addEventListener('click', async function (e) {
   e.preventDefault();
   const clickedItem = e.target.innerText;
-  const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${clickedItem}`;
+  const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${clickedItem}`;
   const response = await fetch(url);
   const data = await response.json();
   output.innerHTML = ' ';
@@ -223,7 +223,7 @@ favoriteBtn.addEventListener('click', async function () {
 
   if (favoritesArray && favoritesArray.length > 0) {
     for (const item of favoritesArray) {
-      const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${item}`;
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${item}`;
       const response = await fetch(url);
       const data = await response.json();
       showFavorites(data);
